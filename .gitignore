@@ -1,0 +1,6 @@
+node_modules
+data/certificates
+.idea
+.idea/inspectionProfiles/
+.idea/vcs.xml
+.idea/workspace.xml
