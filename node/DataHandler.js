@@ -27,7 +27,7 @@ class DataHandler {
     }
 
     static getKey() {
-        return FS.readFileSync(`data/certificates/key.key`);
+        return FS.readFileSync(`data/certificates/key.rsa`);
     }
 
     static getCert() {
