@@ -78,26 +78,25 @@
   }
 
   .area {
-    margin: auto;
-    width: 70%;
-    padding: 15px;
-    border: 1px solid #333;
     background: black;
-    opacity: 0.6;
-    transition: 0.3s;
+    border: 1px solid #333;
+    margin: auto;
+    opacity: .6;
+    padding: 15px;
+    transition: .3s;
+    width: 70%;
   }
 
   .area:hover {
-    opacity: 1;
+    opacity: 1 !important;
   }
 
   #dropArea {
     border: 2px dashed #bbb;
-    -webkit-border-radius: 5px;
     border-radius: 5px;
+    color: #fff;
+    font: 21pt bold arial;
     padding: 50px;
     text-align: center;
-    font: 21pt bold arial;
-    color: #fff;
   }
 }

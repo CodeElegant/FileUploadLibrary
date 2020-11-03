@@ -16,7 +16,7 @@ class app {
     constructor() {
         this.#data_handler = new DATA_HANDLER();
         this.#ejsData = null;
-        this.#fileName = `index.ejs`;
+        this.#fileName = 'index.ejs';
         this.loadServer();
     }
 
@@ -25,9 +25,10 @@ class app {
      */
     loadServer() {
         const HTTP = require('http');
-        const HTTP2 = require('http2');
         const EJS = require('ejs');
-        const PORT = process.env.PORT || 443;
+        const HTTP_PORT = '80';
+        const HTTP2 = require('http2');
+        const SSL_PORT = process.env.PORT || '443';
         const SSL_OPTIONS = {
             key: DATA_HANDLER.getKey(),
             cert: DATA_HANDLER.getCert(),
@@ -36,11 +37,12 @@ class app {
         };
 
         HTTP.createServer((request, response) => {
+            console.log(`https://${request.headers['host']}${request.url}`);
             response.writeHead(301, {
                 'Location': `https://${request.headers['host']}${request.url}`
             });
             response.end();
-        }).listen(80);
+        }).listen(HTTP_PORT);
 
         HTTP2.createSecureServer(SSL_OPTIONS, async (request, response) => {
 
@@ -94,7 +96,7 @@ class app {
             } else {
                 DATA_HANDLER.renderDom(`HEY! What you're looking for: It's not here!`, 'text/html', httpHandler, 'utf-8');
             }
-        }).listen(PORT);
+        }).listen(SSL_PORT);
     }
 }
 

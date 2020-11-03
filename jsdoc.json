@@ -2,7 +2,7 @@
   "plugins": [],
   "recurseDepth": 5,
   "source": {
-    "include": "public/javascripts",
+    "include": ["public/javascripts"],
     "includePattern": ".+\\.js(doc|x)?$",
     "excludePattern": "(^|\\/|\\\\)_"
   },

@@ -37,6 +37,7 @@ export default class EventHandler {
             EventHandler.#preventDefaults(event);
             event.dataTransfer.dropEffect = 'copy';
             let files = event.dataTransfer.files;
+            dragArea.style.opacity = '0.6';
             for (let file of files) {
                 if (file.name.match('.csv')) {
                     let reader = new FileReader();
@@ -49,15 +50,13 @@ export default class EventHandler {
         }, false);
 
         dropArea.addEventListener('dragover', function(event) {
-            event.preventDefault();
-            event.stopPropagation();
+            EventHandler.#preventDefaults(event);
             event.dataTransfer.dropEffect = 'copy';
             dragArea.style.opacity = '1';
         }, false);
 
         dropArea.addEventListener('dragleave', function(event) {
-            event.preventDefault();
-            event.stopPropagation();
+            EventHandler.#preventDefaults(event);
             event.dataTransfer.dropEffect = 'copy';
             dragArea.style.opacity = '0.6';
         }, false);

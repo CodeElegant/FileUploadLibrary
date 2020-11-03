@@ -22,7 +22,7 @@ class Main {
      * @returns {void}
      */
     static prepUX() {
-        document.getElementById(`installBanner`).style.display = 'none';
+        document.getElementById('installBanner').style.display = 'none';
     }
 
     /**
@@ -32,9 +32,9 @@ class Main {
     static async loadServiceWorker() {
         if ('serviceWorker' in navigator) {
             await navigator.serviceWorker.register('/ServiceWorker.js').then((registration) => {
-                console.log('BDH ServiceWorker registration succeeded. Scope is ' + registration.scope);
+                console.log(`BDH ServiceWorker registration succeeded. Scope is ${registration.scope}`);
             }).catch((error) => {
-                console.log('Registration failed with ' + error);
+                console.log(`Registration failed with ${error}`);
             });
         }
     }

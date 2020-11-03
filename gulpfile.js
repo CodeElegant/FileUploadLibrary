@@ -54,10 +54,10 @@ gulp.task('watch', () => {
 });
 
 gulp.task('default', gulp.parallel(
-        'git-add',
-        'minify-ejs',
-        'compile-sass',
+        // 'git-add',
+        // 'minify-ejs',
+        // 'compile-sass',
         // 'minify-es6'
-        //'watch'
+        'watch'
     )
 );

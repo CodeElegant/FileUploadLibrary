@@ -13,8 +13,7 @@
   },
   "dependencies": {
     "ejs": "latest",
-    "formidable": "latest",
-    "node-sass": "^4.14.1"
+    "formidable": "latest"
   },
   "devDependencies": {
     "del": "^6.0.0",
@@ -23,6 +22,7 @@
     "gulp-minify-ejs": "latest",
     "gulp-sass": "latest",
     "gulp-terser-js": "latest",
+    "node-sass": "^4.14.1",
     "jsdoc": "latest"
   },
   "repository": {
