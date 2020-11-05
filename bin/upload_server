@@ -1,4 +1,9 @@
+//{
+//    const APP = require('../app.js');
+//    new APP();
+//}
+
 {
-    const APP = require('../app.js');
+    const APP = require('../HerokuApp.js');
     new APP();
 }

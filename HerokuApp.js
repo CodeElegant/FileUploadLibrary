@@ -5,7 +5,7 @@ const DATA_HANDLER = require('./node/DataHandler');
 /**
  * Web server utilizing HTTP/2
  */
-class app {
+class HerokuApp {
     #data_handler;
     #ejsData;
     #fileName;
@@ -27,25 +27,8 @@ class app {
         const HTTP = require('http');
         const EJS = require('ejs');
         const HTTP_PORT = process.env.PORT || '80';
-        const HTTP2 = require('http2');
-        const SSL_PORT = process.env.PORT || '443';
-        const SSL_OPTIONS = {
-            key: DATA_HANDLER.getKey(),
-            cert: DATA_HANDLER.getCert(),
-            requestCert: true,
-            rejectUnauthorized: false
-        };
 
         HTTP.createServer(async (request, response) => {
-            console.log(`https://${request.headers['host']}${request.url}`);
-            response.writeHead(301, {
-                'Location': `https://${request.headers['host']}${request.url}`
-            });
-            response.end();
-        }).listen(HTTP_PORT);
-
-        HTTP2.createSecureServer(SSL_OPTIONS, async (request, response) => {
-
             let httpHandler = (error, string, contentType) => {
                 if (error) {
                     response.writeHead(500, {'Content-Type': 'text/plain'});
@@ -96,8 +79,8 @@ class app {
             } else {
                 DATA_HANDLER.renderDom(`HEY! What you're looking for: It's not here!`, 'text/html', httpHandler, 'utf-8');
             }
-        }).listen(SSL_PORT);
+        }).listen(HTTP_PORT);
     }
 }
 
-module.exports = app;
+module.exports = HerokuApp;
