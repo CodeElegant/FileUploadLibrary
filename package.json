@@ -1,6 +1,6 @@
 {
   "name": "file_upload_library",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "JavaScript/Node.js library package for file uploads in PWAs",
   "main": "bin/upload_server",
   "scripts": {
