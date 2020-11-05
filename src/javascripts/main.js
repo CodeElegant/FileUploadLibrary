@@ -31,7 +31,7 @@ class Main {
      */
     static async loadServiceWorker() {
         if ('serviceWorker' in navigator) {
-            await navigator.serviceWorker.register('/ServiceWorker.js').then((registration) => {
+            await navigator.serviceWorker.register('/ServiceWorker.js', {scope: "/"}).then((registration) => {
                 console.log(`BDH ServiceWorker registration succeeded. Scope is ${registration.scope}`);
             }).catch((error) => {
                 console.log(`Registration failed with ${error}`);

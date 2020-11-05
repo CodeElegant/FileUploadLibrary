@@ -1,4 +1,4 @@
-const VERSION = "v1.00.8";
+const VERSION = "v1.00.9";
 
 const cacheResources = async () => {
     const cacheFilesFirst = [

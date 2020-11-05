@@ -26,7 +26,7 @@ class app {
     loadServer() {
         const HTTP = require('http');
         const EJS = require('ejs');
-        const HTTP_PORT = '80';
+        const HTTP_PORT = process.env.PORT || '80';
         const HTTP2 = require('http2');
         const SSL_PORT = process.env.PORT || '443';
         const SSL_OPTIONS = {

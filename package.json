@@ -9,28 +9,28 @@
   "author": "Howard Bates",
   "license": "MIT",
   "engines": {
-    "node": ">= 15.0.0"
+    "node": ">= 15.1.0"
   },
   "dependencies": {
     "ejs": "latest",
     "formidable": "latest"
   },
   "devDependencies": {
-    "del": "^6.0.0",
+    "del": "latest",
     "gulp": "latest",
     "gulp-git": "latest",
     "gulp-minify-ejs": "latest",
     "gulp-sass": "latest",
     "gulp-terser-js": "latest",
-    "node-sass": "^4.14.1",
-    "jsdoc": "latest"
+    "jsdoc": "latest",
+    "node-sass": "^5.0.0"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/BackPacker777/FileUploadLibrary.git"
+    "url": "git+https://github.com/CodeElegant/FileUploadLibrary.git"
   },
   "bugs": {
-    "url": "https://github.com/BackPacker777/FileUploadLibrary/issues"
+    "url": "https://github.com/CodeElegant/FileUploadLibrary/issues"
   },
-  "homepage": "https://github.com/BackPacker777/FileUploadLibrary#readme"
+  "homepage": "https://github.com/CodeElegant/FileUploadLibrary#readme"
 }
