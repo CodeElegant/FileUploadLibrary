@@ -1,1 +1,75 @@
-"use strict";import EventHandler from"./EventHandler.js";class Main{constructor(){new EventHandler,Main.prepUX(),Main.loadServiceWorker(),Main.handleManifest()}static prepUX(){document.getElementById("installBanner").style.display="none"}static async loadServiceWorker(){"serviceWorker"in navigator&&await navigator.serviceWorker.register("/ServiceWorker.js").then(e=>{console.log("BDH ServiceWorker registration succeeded. Scope is "+e.scope)}).catch(e=>{console.log("Registration failed with "+e)})}static handleManifest(){let e;window.addEventListener("beforeinstallprompt",t=>{t.preventDefault(),e=t,document.getElementById("installBanner").style.display="block",document.getElementById("installButton").addEventListener("click",()=>{document.getElementById("installBanner").style.display="none",e.prompt(),e.userChoice.then(t=>{"accepted"===t.outcome?console.log("User accepted the A2HS prompt"):console.log("User dismissed the A2HS prompt"),e=null})})})}}window.addEventListener("load",()=>{new Main});
+"use strict";
+
+import EventHandler from './EventHandler.js';
+
+/**
+ * Dispatch class
+ */
+class Main {
+
+    /**
+     * @constructor
+     */
+    constructor() {
+        new EventHandler();
+        Main.prepUX();
+        Main.loadServiceWorker();
+        Main.handleManifest();
+    }
+
+    /**
+     * Prepare the user experience
+     * @returns {void}
+     */
+    static prepUX() {
+        document.getElementById('installBanner').style.display = 'none';
+    }
+
+    /**
+     *
+     * @returns {Promise<void>}
+     */
+    static async loadServiceWorker() {
+        if ('serviceWorker' in navigator) {
+            await navigator.serviceWorker.register('/ServiceWorker.js').then((registration) => {
+                console.log(`BDH ServiceWorker registration succeeded. Scope is ${registration.scope}`);
+            }).catch((error) => {
+                console.log(`Registration failed with ${error}`);
+            });
+        }
+    }
+
+    //, {scope: '/'}
+
+    /**
+     * @returns {void}
+     */
+    static handleManifest() {
+        let deferredPrompt;
+        window.addEventListener('beforeinstallprompt', (event) => {
+            event.preventDefault();
+            deferredPrompt = event;
+            document.getElementById(`installBanner`).style.display = 'block';
+            document.getElementById(`installButton`).addEventListener('click', () => {
+                document.getElementById(`installBanner`).style.display = 'none';
+                deferredPrompt.prompt();
+                deferredPrompt.userChoice
+                    .then((choiceResult) => {
+                        if (choiceResult.outcome === 'accepted') {
+                            console.log('User accepted the A2HS prompt');
+                        } else {
+                            console.log('User dismissed the A2HS prompt');
+                        }
+                        deferredPrompt = null;
+                    });
+            });
+        });
+    }
+}
+
+/**
+ * Bootstraps program by instantiating object of Main()
+ */
+window.addEventListener('load', () => {
+    new Main();
+});
