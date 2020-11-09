@@ -1,10 +1,10 @@
 {
   "name": "file_upload_library",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "description": "JavaScript/Node.js library package for file uploads in PWAs",
   "main": "bin/upload_server",
   "scripts": {
-    "start": "node bin/upload_server"
+    "start": "node bin/heroku_upload_server"
   },
   "author": "Howard Bates",
   "license": "MIT",
