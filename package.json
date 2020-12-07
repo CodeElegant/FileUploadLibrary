@@ -1,26 +1,33 @@
 {
   "name": "file_upload_library",
-  "version": "1.0.4",
+  "version": "1.1.0",
   "description": "JavaScript/Node.js library package for file uploads in PWAs",
   "main": "bin/upload_server",
   "scripts": {
-    "start": "node bin/heroku_upload_server"
+    "start": "node bin/upload_server"
   },
   "author": "Howard Bates",
   "license": "MIT",
   "engines": {
-    "node": ">= 15.1.0"
+    "node": ">= 15.3.0"
   },
   "dependencies": {
     "ejs": "latest",
     "formidable": "latest"
   },
   "devDependencies": {
+    "@babel/core": "^7.12.9",
+    "@babel/eslint-parser": "^7.12.1",
+    "@babel/eslint-plugin": "^7.12.1",
+    "@babel/plugin-proposal-class-properties": "latest",
+    "@babel/plugin-proposal-private-methods": "latest",
+    "@babel/plugin-syntax-class-properties": "^7.12.1",
     "del": "latest",
     "gulp": "latest",
     "gulp-git": "latest",
     "gulp-minify-ejs": "latest",
     "gulp-sass": "latest",
+    "gulp-terser": "^2.0.0",
     "gulp-terser-js": "latest",
     "jsdoc": "latest",
     "node-sass": "^5.0.0"

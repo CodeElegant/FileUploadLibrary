@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'v1.00.01';
+const CACHE_VERSION = 'v1.00.02';
 const CACHE_FILES = [
     '/',
     '/public/views/index.ejs',
